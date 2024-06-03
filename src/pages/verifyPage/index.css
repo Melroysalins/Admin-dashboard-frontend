@@ -1,0 +1,40 @@
+.VerifiedPage{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.VerifiedContainner{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 140px;
+    border-radius: 12px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.MainOTP{
+    font-weight: bold;
+    font-size: 19px;
+      font-family: "Poppins", sans-serif;
+}
+.restoftheText{
+     font-weight: 500;
+    font-size: 15px;
+      font-family: "Poppins", sans-serif;
+}
+.VerifyButton{
+    height: 40px;
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    padding: 9px;
+    width: 90px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.VerifyButton:hover{
+    background-color: black;
+    color: white;
+}

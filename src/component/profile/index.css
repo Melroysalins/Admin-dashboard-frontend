@@ -1,0 +1,23 @@
+.ProfileContainner{
+    display: flex;
+    width: 100%;
+    background-color: none;
+    flex-direction: column;
+    padding: 14px;
+}
+.ProfileFormContainner{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 15px;
+    column-gap: 15px;
+}
+
+.ProfileFormContainner input{
+      padding: 16px;
+    border-radius: 8px;
+    border: 1px solid whitesmoke;
+    outline: none;
+    margin-top: 17px;
+}

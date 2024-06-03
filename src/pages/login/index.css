@@ -1,0 +1,175 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+::-webkit-outer-spin-button,
+::-webkit-inner-spin-button{
+     -webkit-appearance: none;
+     
+}
+.LoginPage{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    justify-content: center;
+}
+.MainLoginLayout{
+    width: 100%;
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    /* height: 70vh; */
+    border-radius: 8px;
+}
+.LoginImageLayout{
+    flex-basis: 45%;
+    display: flex;
+    /* height: 60vh; */
+    justify-content: center;
+    padding: 20px;
+   
+   
+}
+.LoginLayout{
+    flex-basis: 44%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+  
+}
+.loginandregistercontainner{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+   
+}
+.loginheadingContainner{
+    display: flex;
+    padding: 8px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+}
+.FormDiv{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.LoginFormContainner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    gap: 30px;
+}
+
+.LoginFormContainner input{
+    padding: 10px;
+    width: 90%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    border: 1px solid black;
+     font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+     -moz-appearance: textfield;
+   
+}
+::placeholder{
+     font-family: "Poppins", sans-serif;
+     font-weight: bold;
+     opacity: 0.7;
+}
+.LoginBtn{
+    padding: 9px;
+    margin-top: 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+      font-family: "Poppins", sans-serif;
+     font-weight: 600;
+     font-size: 18px;
+     color: white;
+     width: 96%;
+     background-color:#FF735C;
+}
+.registermessage{
+    display: flex;
+    width: 100%;
+    gap: 6px;
+    margin-left: 23px;
+    cursor: pointer;
+       font-family: "Poppins", sans-serif;
+     font-weight: 600;
+     font-size: 13px;
+     /* opacity: 0.7; */
+}
+.message{
+       font-family: "Poppins", sans-serif;
+     font-weight: 600;
+     font-size: 13px;
+      color:#FF735C;
+      cursor: pointer;
+      cursor: pointer;
+}
+.message:hover{
+    opacity: 100;
+}
+
+@media(max-width:900px){
+    .LoginImageLayout{
+  display: none;
+   
+}
+.MainLoginLayout{
+    display: flex;
+    justify-content: center;
+}
+.LoginLayout{
+    flex-basis: 60%;
+}
+}
+
+@media(max-width:600px){
+.LoginLayout{
+    flex-basis: 100%;
+}
+.LoginPage{
+    padding: 17px;
+    overflow-y: none;
+}
+.MainLoginLayout{
+    display: flex;
+    justify-content: center;
+    box-shadow: none;
+}
+.loginheadingContainner{
+    display: flex;
+    padding: 8px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+}
+.LoginBtn{
+    font-size: 16px;
+}
+
+.LoginFormContainner input{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    border: 1px solid black;
+     font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+   
+}
+
+}
