@@ -1,0 +1,12 @@
+.ProductSearchContainner{
+    display: flex;
+    padding: 6px;
+    justify-content: space-between;
+}
+.ProductSearchContainner input{
+    width: 630px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    border: 2px solid whitesmoke;
+}

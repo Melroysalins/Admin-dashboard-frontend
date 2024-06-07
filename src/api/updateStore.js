@@ -7,6 +7,7 @@ const updateStore = async ({
   offer,
   storename,
   file,
+  logo,
   deliveryTime,
 }) => {
   const formData = new FormData();
@@ -18,6 +19,7 @@ const updateStore = async ({
   formData.append("address", address);
   formData.append("offer", offer);
   formData.append("file", file);
+  formData.append("logo", logo);
   formData.append("storeID", storeID);
 
   const result = await fetch(`${BaseUrl}/updatestore`, {

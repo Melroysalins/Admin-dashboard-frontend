@@ -8,7 +8,6 @@
     width: 100%;
     height: 100%;
     gap: 1px;
-     background-color:whitesmoke;
 }
 .HomepageLayout1{
     display: flex;
@@ -82,7 +81,6 @@
 .HomepageLayout2{
     display: flex;
     width: 82%;
-    height: 100vh;
     /* background-color:#f0eded; */
     flex-direction: column;
 }
@@ -109,6 +107,16 @@
     display: flex;
     width: 80px;
     height: 40px;
+}
+.productImage{
+    width: 50px;
+    height: 50px;
+
+}
+.productImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 .StoreLogo img{
     width: 100%;

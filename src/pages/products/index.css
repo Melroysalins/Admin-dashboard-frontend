@@ -1,0 +1,21 @@
+.ProductsPage{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.ProductPageContainner{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.AddProductContainner{
+    display: flex;
+    width: 100%;
+    padding: 14px;
+    justify-content: end;
+}

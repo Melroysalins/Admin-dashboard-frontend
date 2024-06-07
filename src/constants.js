@@ -7,6 +7,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import StarIcon from "@mui/icons-material/Star";
+import StorefrontIcon from "@mui/icons-material/Storefront";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 
 export const BaseUrl = "http://localhost:4000/api/admin";
 
@@ -37,7 +39,8 @@ export const Menulistcontent = [
   },
   {
     id: 105,
-    name: "Address",
+    name: "Products",
+    navigate: "/allproducts",
     icon: <AddLocationAltIcon />,
   },
   {
@@ -60,5 +63,29 @@ export const Menulistcontent = [
     id: 109,
     name: "Review",
     icon: <ThumbUpIcon />,
+  },
+];
+
+export const EditDetails = [
+  {
+    id: "1111",
+    name: "Edit Your Store",
+    icon: <StorefrontIcon />,
+    backgroundColor: "#4D4D4D",
+    iconcolor: "white",
+  },
+  {
+    id: "1112",
+    name: "Edit Products",
+    icon: <InventoryIcon />,
+    backgroundColor: "#D1E5EC",
+    iconcolor: "333333",
+  },
+  {
+    id: "1113",
+    name: "Edit Profile",
+    icon: <PermIdentityIcon />,
+    backgroundColor: "#D6EDB9",
+    iconcolor: "#474845",
   },
 ];

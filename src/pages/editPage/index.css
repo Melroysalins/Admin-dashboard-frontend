@@ -1,0 +1,48 @@
+.EditPage{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    
+}
+.EditOptionsDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.EditProductsContainner{
+  
+    width: 240px;
+    display: flex;
+    padding: 6px;
+    border-radius: 12px;
+    height: 90px;
+    flex-direction: column;
+    cursor: pointer;
+}
+.IconRowContainner{
+    width: 100%;
+    padding: 4px;
+    display: flex;
+}
+.EditnameContainner{
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+}
+.EditnameContainner p{
+font-family: "Poppins", sans-serif;
+cursor: pointer;
+font-weight: 600;
+}
+
+.EditFormContainner{
+    width: 100%;
+
+    display: flex;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 50px;
+    row-gap: 20px;
+    column-gap: 20px
+}

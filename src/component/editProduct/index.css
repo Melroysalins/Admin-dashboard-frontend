@@ -1,0 +1,43 @@
+.EditProductPage{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+.EditProductContainner{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+    padding: 9px;
+}
+.EditProductContainner input {
+    padding: 19px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.EditProductContainner textarea {
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    resize: none;
+    font-family: "Poppins", sans-serif;
+}
+
+.productImageContainner{
+    display: flex;
+    width: 100%;
+    width: 100%;
+    margin-top: 30px;
+    padding: 10px;
+    align-items: center;
+}
+.ProductSaveButtonContainner{
+    margin-top: 20px;
+    display: flex;
+    padding: 8px;
+    justify-content: end;
+}

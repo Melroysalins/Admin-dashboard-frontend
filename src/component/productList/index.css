@@ -1,0 +1,53 @@
+.ProductListContainner{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+   padding-bottom: 4px;
+    border-bottom: 2px solid #ccc;
+    cursor: pointer;
+}
+.ProductListContainner label{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+}
+.ProductListContainner input:first-child{
+    width: 40px;
+    padding: 8px;
+    font-weight: 600;
+    outline: none;
+    border: none;
+}
+.priceINPUT{
+    width: 60px;
+    border: none;
+    margin-right: 10px;
+    padding: 8px;
+    font-weight: 600;
+}
+
+.EditContainner{
+    position: relative;
+}
+.EditContainner ul{
+    position: absolute;
+    top: 2%;
+    background-color: white;
+    border-radius: 7px;
+    padding: 7px;
+    text-decoration: none;
+    list-style-type: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.EditContainner ul li{
+    margin-top: 4px;
+      font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+}
+.EditContainner ul li:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}

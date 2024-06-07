@@ -1,0 +1,63 @@
+.EditProfilePageContainner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   
+    padding: 20px;
+}
+.EditProfilePagee{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 9px;
+}
+.dash{
+    background-color: #4644D1;
+    width:26px;
+    border-radius: 7px;
+    height: 10px;
+    cursor: pointer;
+}
+.EditProfilePagee h4{
+       font-family: "Poppins", sans-serif;
+       cursor: pointer;
+}
+.ProfileMainInfoContainner{
+    width: 100%;
+    display: flex;
+    margin-top: 60px;
+    gap: 40px;
+}
+
+.ProfileEditForm{
+    display: flex;
+    flex-direction: column;
+  
+    gap: 35px;
+}
+.ProfileEditForm input{
+    padding: 13px;
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    outline:  none;
+}
+.ProfileEditSaveButton{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.ProfileEditSaveButton button{
+    width: 100px;
+    padding: 12px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    color: white;
+    background-color: black;
+}
+.ProfileEditSaveButton button:hover{
+    opacity: 0.7;
+}

@@ -1,8 +1,8 @@
 import React from "react";
 
-const StoreLogo = ({ image }) => {
+const StoreLogo = ({ image, isproductpage }) => {
   return (
-    <div className="StoreLogo">
+    <div className={!isproductpage ? "StoreLogo" : "productImage"}>
       <img src={image} />
     </div>
   );
