@@ -1,0 +1,50 @@
+.OrderAcceptedContainne{
+  
+}
+.accepted{
+    border: 1px  dashed green;
+    padding: 4px;
+    width: 100px;
+    font-family: "Poppins", sans-serif;
+ font-weight: 600;
+ border-radius: 7px;
+ color: green;
+ display: flex;
+ justify-content: center    ;
+}
+.notaccepted{
+     border: 1px  dashed red;
+    padding: 4px;
+    width: 100px;
+    font-family: "Poppins", sans-serif;
+ font-weight: 600;
+ border-radius: 7px;
+ color: red;
+ display: flex;
+ justify-content: center    ;
+}
+
+@media(max-width:740px){
+    .accepted{
+    border: 1px  dashed green;
+    padding: 4px;
+    width: 73px;
+    font-family: "Poppins", sans-serif;
+ font-weight: 600;
+ border-radius: 7px;
+ color: green;
+ display: flex;
+ justify-content: center    ;
+}
+.notaccepted{
+     border: 1px  dashed red;
+    padding: 4px;
+    width: 73px;
+    font-family: "Poppins", sans-serif;
+ font-weight: 600;
+ border-radius: 7px;
+ color: red;
+ display: flex;
+ justify-content: center    ;
+}
+}

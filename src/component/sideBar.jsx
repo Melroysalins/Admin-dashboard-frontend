@@ -4,16 +4,22 @@ import { Menulistcontent } from "../constants";
 import MenuList from "./menuList";
 
 const SiderBar = () => {
+  const [showmenulist, setShowMenuList] = useState(true);
   return (
     <div className="StyleBarContainner">
-      <SiderBarHeader />
-      <div className="SiderBarContentContainner">
-        <ul>
-          {Menulistcontent?.map((list) => (
-            <MenuList key={list?.id} data={list} />
-          ))}
-        </ul>
-      </div>
+      <SiderBarHeader
+        setShowMenuList={setShowMenuList}
+        showmenulist={showmenulist}
+      />
+      {showmenulist && (
+        <div className="SiderBarContentContainner">
+          <ul>
+            {Menulistcontent?.map((list) => (
+              <MenuList key={list?.id} data={list} />
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

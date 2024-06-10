@@ -1,6 +1,6 @@
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-const SiderBarHeader = () => {
+const SiderBarHeader = ({ showmenulist, setShowMenuList }) => {
   return (
     <div
       style={{
@@ -11,7 +11,10 @@ const SiderBarHeader = () => {
       }}
     >
       <p className="AdminHeadre">Admin</p>
-      <MenuIcon sx={{ color: "#FF735C", cursor: "pointer" }} />
+      <MenuIcon
+        sx={{ color: "#dbd6d6", cursor: "pointer" }}
+        onClick={() => setShowMenuList(!showmenulist)}
+      />
     </div>
   );
 };

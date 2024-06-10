@@ -1,11 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const EditProducts = ({ data }) => {
-  console.log("The data--->", data);
+  const navigate = useNavigate();
   return (
     <div
       className="EditProductsContainner"
       style={{ background: data?.backgroundColor }}
+      onClick={() => navigate(`${data?.navigate}`)}
     >
       <div className="IconRowContainner" style={{ color: data?.iconcolor }}>
         {data?.icon}

@@ -73,6 +73,7 @@ export const EditDetails = [
     icon: <StorefrontIcon />,
     backgroundColor: "#4D4D4D",
     iconcolor: "white",
+    navigate: "/editstore",
   },
   {
     id: "1112",
@@ -87,5 +88,21 @@ export const EditDetails = [
     icon: <PermIdentityIcon />,
     backgroundColor: "#D6EDB9",
     iconcolor: "#474845",
+    navigate: "/editprofile",
+  },
+];
+
+export const DashBoardFilter = [
+  {
+    id: "2020202",
+    name: "New Order",
+  },
+  {
+    id: "2020203",
+    name: "Order Delivered",
+  },
+  {
+    id: "2020204",
+    name: "Accepted Order",
   },
 ];

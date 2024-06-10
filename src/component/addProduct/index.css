@@ -4,7 +4,6 @@
     flex-direction: column;
     padding: 11px;
     margin-top: 20px;
-    border: 1px solid black;
 }
 .Accordian{
     display: flex;
@@ -30,6 +29,8 @@
     font-weight: 500;
     border-radius: 9px;
     border: none;
+    border: 1px solid #ccc;
+    outline: none;
 }
 .SubProductContainners{
     display: flex;

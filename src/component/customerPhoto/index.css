@@ -1,0 +1,21 @@
+.CustomerPhoto{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media(max-width : 740px){
+    .CustomerPhoto{
+    width: 25px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+}

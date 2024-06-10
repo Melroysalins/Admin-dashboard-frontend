@@ -1,0 +1,29 @@
+.CustomerAddressContainner{
+    background-color: none;
+
+}
+.CustomerAddressContainner textarea{
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 6px;
+      font-family: "Poppins", sans-serif;
+       font-weight: 600;
+       border-radius: 8px;
+       background-color: none;
+       background: whitesmoke;
+}
+
+@media (max-width : 740px){
+    .CustomerAddressContainner textarea{
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 4px;
+      font-family: "Poppins", sans-serif;
+       font-weight: 600;
+       border-radius: 8px;
+       background-color: none;
+       background: whitesmoke;
+}
+}

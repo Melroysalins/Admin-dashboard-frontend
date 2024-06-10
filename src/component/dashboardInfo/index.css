@@ -1,0 +1,12 @@
+.DashBoardInfoContainner{
+    display: flex;
+    width: 120px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+.DashBoardInfoContainner h6{
+    font-family: "Poppins", sans-serif;
+    color: #757575;
+}

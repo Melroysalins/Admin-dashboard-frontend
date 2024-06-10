@@ -8,22 +8,19 @@ const getUserProfileDetails = async () => {
   return response;
 };
 
-const EditUserProfileDetails = async ({ adminname, email, number }) => {
+const EditUserProfileDetails = async ({ adminname, email, number, Pimage }) => {
   const _id = localStorage.getItem("userid");
 
-  const data = {
-    adminname,
-    email,
-    phone: number,
-    _id: _id,
-  };
-  console.log("Frontend api call ---->", data);
+  const formData = new FormData();
+  formData.append("adminname", adminname);
+  formData.append("email", email);
+  formData.append("phone", number);
+  formData.append("_id", _id);
+  formData.append("Pimage", Pimage);
+
   const result = await fetch(`${BaseUrl}/edituser/profile`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
+    body: formData,
   });
   const response = await result.json();
 

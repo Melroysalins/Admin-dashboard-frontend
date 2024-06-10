@@ -41,6 +41,8 @@
     border: 1px solid #ccc;
     border-radius: 9px;
     outline:  none;
+       font-family: "Poppins", sans-serif;
+       font-weight: 600;
 }
 .ProfileEditSaveButton{
     display: flex;

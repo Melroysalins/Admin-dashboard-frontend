@@ -1,0 +1,16 @@
+/* Hide scrollbar for Chrome, Safari, and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Optionally hide scrollbar track */
+body::-webkit-scrollbar-track {
+    display: none;
+}
+
+/* Optionally hide scrollbar thumb */
+body::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+  

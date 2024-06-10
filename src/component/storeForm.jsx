@@ -34,67 +34,6 @@ const StoreForm = () => {
     setLogo(e.target.files[0]);
   };
 
-  const handlesaveStoreDetails = async () => {
-    if (!editclicked) {
-      if (openTime === closeTime) {
-        setOpen(true);
-        setSeverity("error");
-        setMessage("Shop open time and close time cannot be same");
-      } else if (
-        [
-          storename,
-          deliveryTime,
-          openTime,
-          closeTime,
-          address,
-          offer,
-          file,
-        ].some((filed) => filed?.trim !== "")
-      ) {
-        const storeRegister = await registerStore({
-          storename,
-          deliveryTime,
-          openTime,
-          closeTime,
-          address,
-          offer,
-          file,
-          logo,
-          storeID,
-        });
-
-        if (storeRegister?.status === 200) {
-          setOpen(true);
-          setSeverity("success");
-          setMessage(storeRegister?.message);
-          setDisabled(true);
-          setEditClicked(false);
-        } else {
-          setOpen(true);
-          setMessage(storeRegister?.message);
-        }
-
-        console.log("Store creation", storeRegister);
-      }
-    } else {
-      const updatedStoreResult = await updateStore({
-        storename,
-        deliveryTime,
-        openTime,
-        closeTime,
-        address,
-        offer,
-        file,
-        logo,
-      });
-      if (updatedStoreResult?.status === 200) {
-        setDisabled(true);
-        setEditClicked(false);
-      }
-      console.log("updated store details frontend", updatedStoreResult);
-    }
-  };
-
   const fetchStoreDetails = async () => {
     const resultData = await getCurrentStoreDetails();
     console.log("resultData", resultData);
@@ -109,11 +48,6 @@ const StoreForm = () => {
       setStoreName(resultData?.checkStoreExist?.storename);
       setFile(resultData?.checkStoreExist?.file?.url);
     }
-  };
-
-  const handleEdit = async () => {
-    setDisabled(false);
-    setEditClicked(true);
   };
 
   useEffect(() => {
@@ -184,19 +118,7 @@ const StoreForm = () => {
           />
         </label>
       </div>
-      <div className="StoreSaveButtonContainner">
-        <div className="editicon">
-          <EditIcon
-            sx={{ padding: "3px" }}
-            onClick={() => handleEdit()}
-            disabled={editclicked}
-          />
-          <div className="tooltip">Edit</div>
-        </div>
-        <button onClick={() => handlesaveStoreDetails()} disabled={disabled}>
-          Save
-        </button>
-      </div>
+
       <CustomizedSnackbars
         open={open}
         setOpen={setOpen}

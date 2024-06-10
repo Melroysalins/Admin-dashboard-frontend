@@ -15,30 +15,6 @@ const Profile = () => {
   const [message, setMessage] = useState("");
   const [severity, setSeverity] = useState("success");
 
-  const handlesaveUserDetail = async () => {
-    // check the validation part  and then assign it to api call
-
-    const validatedData = EmailandPhoneValidation(email, number);
-
-    if (!validatedData.length) {
-      const updatedResult = await EditUserProfileDetails({
-        adminname,
-        email,
-        number,
-      });
-
-      if (updatedResult?.status === 200) {
-        setOpen(true);
-        setMessage(updatedResult?.message);
-        setSeverity("success");
-      }
-    } else {
-      setOpen(true);
-      setSeverity("error");
-      setMessage(validatedData);
-    }
-  };
-
   const fetchUserDetails = async () => {
     const userInfo = await getUserProfileDetails();
     if (!editclicked) {
@@ -54,11 +30,6 @@ const Profile = () => {
     }
 
     // console.log("user info", userInfo);
-  };
-
-  const handleEditUserDetail = () => {
-    setDisabled(false);
-    setEditClick(true);
   };
 
   useEffect(() => {
@@ -90,19 +61,7 @@ const Profile = () => {
           disabled={disabled}
         />
       </div>
-      <div className="StoreSaveButtonContainner">
-        <div className="editicon">
-          <EditIcon
-            sx={{ padding: "3px" }}
-            onClick={() => handleEditUserDetail()}
-            disabled={editclicked}
-          />
-          <div className="tooltip">Edit</div>
-        </div>
-        <button onClick={() => handlesaveUserDetail()} disabled={disabled}>
-          Save
-        </button>
-      </div>
+
       <CustomizedSnackbars
         open={open}
         setOpen={setOpen}
