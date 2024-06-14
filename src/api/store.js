@@ -11,6 +11,8 @@ const registerStore = async ({
   storeID,
   logo,
   OfferBanner,
+  restauranttype,
+  cuisine,
 }) => {
   const serializedAddress = JSON.stringify(address);
   const formData = new FormData();
@@ -23,7 +25,8 @@ const registerStore = async ({
   formData.append("file", file);
   formData.append("logo", logo);
   formData.append("storeID", storeID);
-  formData.append("OfferBanner", OfferBanner);
+  formData.append("restauranttype", restauranttype);
+  formData.append("cuisine", cuisine);
 
   const result = await fetch(`${BaseUrl}/store`, {
     method: "POST",

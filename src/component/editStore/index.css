@@ -6,7 +6,7 @@
 }
 .EditStoreContainer{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(2,1fr);
     row-gap: 20px;
     column-gap: 20px;
 }
@@ -36,25 +36,8 @@
     padding: 9px;
     justify-content: end;
 }
-.EditStoreContainer input{
-    padding: 19px;
-    border-radius: 9px;
-    border: 1px solid #ccc;
-    outline: none;
-}
-.EditStoreContainer input:nth-child(4){
-    padding: 10px;
-    border-radius: 9px;
-    border: 1px solid #ccc;
-    outline: none;
-}
-.EditStoreContainer textarea{
-    padding: 19px;
-    resize: none;
-     border: 1px solid #ccc;
-       border-radius: 9px;
-        font-family: "Poppins", sans-serif;
-}
+
+
 .DisplayStoreLogo,.DisplayStoreStoreImage{
     width: 200px;
     height: 150px;
@@ -76,4 +59,33 @@
     height: 100%;
     object-fit: cover;
      border-radius: 8px;
+}
+
+@media (max-width : 1270px){
+    .storeLogoandImageContainner{
+    display: flex;
+  flex-direction: column;
+    width: 100%;
+    margin-top: 40px;
+    gap: 30px;
+}
+
+}
+
+@media(max-width:1170px){
+    .EditStoreContainer{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+}
+}
+
+@media(max-width:400px){
+    .StoreImageInput{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-direction: column;
+}
 }

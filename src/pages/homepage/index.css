@@ -121,6 +121,7 @@
     align-items: center;
     margin-top: 10px;
     border: 2px solid whitesmoke;
+    margin-top: 20px;
 }
 .DashBoardHeaderContainner h4{
     font-weight: 600;
@@ -265,6 +266,18 @@
         }
 
 
+@media(max-width:1120px){
+    .StoreLayoutGrid{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    row-gap: 25px;
+    column-gap: 25px;
+}
+.getCurrentLocation{
+    height: 100%;
+}
+}
+
  @media (max-width :1090px){
     .HomepageLayout2{
     display: flex;
@@ -350,6 +363,28 @@
     width: 100%;
 }
  }
+
+@media (max-width:670px){
+    .HomepageLayout1{
+    display: flex;
+    width: 95%;    
+    /* height: 100%; */
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: #232323;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow-y: none;
+    position: fixed;
+    z-index: 200;
+}
+.HomepageLayout2{
+    margin-top: 45px;
+    margin-left: 10px;
+}
+}
+
 
  /* Hide scrollbar for Chrome, Safari, and Opera */
 body::-webkit-scrollbar {

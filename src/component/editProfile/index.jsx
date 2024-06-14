@@ -3,6 +3,7 @@ import "./index.css";
 import ProfilePhoto from "../profilePhoto";
 import ProfileEditForm from "../profileEditForm";
 import { EditUserProfileDetails, getUserProfileDetails } from "../../api/user";
+import CustomizedSnackbars from "../snackBar";
 
 const EditProfile = () => {
   const [file, setFile] = useState("");
@@ -10,7 +11,9 @@ const EditProfile = () => {
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [load, setLoad] = useState(false);
-
+  const [open, setOpen] = useState(false);
+  const [severity, setSeverity] = useState("success");
+  const [message, setMessage] = useState("");
   const FetchUserInfo = async () => {
     const result = await getUserProfileDetails();
 
@@ -29,12 +32,21 @@ const EditProfile = () => {
       number,
       Pimage: file,
     });
-    console.log("profile updated Result", result);
+
+    if (result?.status === 200) {
+      setOpen(true);
+      setMessage(result?.message);
+      setLoad(true);
+    } else {
+      setOpen(true);
+      setMessage(result?.message);
+      setSeverity("error");
+    }
   };
 
   useEffect(() => {
     FetchUserInfo();
-  }, [setLoad]);
+  }, [load]);
 
   return (
     <div className="EditProfilePageContainner">
@@ -52,8 +64,15 @@ const EditProfile = () => {
           setEmail={setEmail}
           setNumber={setNumber}
           handleSaveProfileDetails={handleSaveProfileDetails}
+          setLoad={setLoad}
         />
       </div>
+      <CustomizedSnackbars
+        open={open}
+        setOpen={setOpen}
+        message={message}
+        severity={severity}
+      />
     </div>
   );
 };

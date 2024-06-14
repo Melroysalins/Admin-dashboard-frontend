@@ -1,7 +1,6 @@
 import React from "react";
 import "./index.css";
 import profileimage from "../../asset/profileimage.jpg";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
 
 const ProfilePhoto = ({ image, setFile }) => {
   const handleFileChange = (e) => {
@@ -12,7 +11,6 @@ const ProfilePhoto = ({ image, setFile }) => {
     <div className="ProfilePhotoContainner">
       <div className="ProfilePictureDiv">
         <img src={!image ? profileimage : image} alt="profile image" />
-        <CameraAltIcon className="cameraIcon" />
       </div>
       <div className="ProfileInputBox">
         <input

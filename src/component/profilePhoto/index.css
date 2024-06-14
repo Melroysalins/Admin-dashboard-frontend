@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 300px;
+    gap: 20px;
 }
 .ProfilePictureDiv{
     width: 300px;
@@ -14,6 +15,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 50%;
 }
 .cameraIcon{
     position: absolute;
@@ -23,8 +25,4 @@
 .ProfileInputBox{
     display: flex;
     width: 100%;
-}
-.ProfileInputBox input{
-    border: 1px dashed #4644D1;
-
 }

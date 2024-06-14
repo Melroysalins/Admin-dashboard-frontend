@@ -8,12 +8,21 @@ const SiderBar = () => {
 
   const [userloggedin, setUserLoggedIn] = useState();
 
+  const [isScreenSmall, setIsScreenSmall] = useState(window.innerWidth <= 670);
+
   const isloggedIn = JSON.parse(localStorage.getItem("isloggin"));
 
   console.log("login--->", typeof isloggedIn);
 
   useEffect(() => {
     setUserLoggedIn(isloggedIn);
+    const handleResize = () => {
+      setIsScreenSmall(window.innerWidth <= 670);
+      setShowMenuList(false);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [isloggedIn, userloggedin]);
 
   return (

@@ -8,18 +8,24 @@
 .EditOptionsDiv{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+   align-items: center;
+   gap: 30px;
     padding: 10px;
 }
 .EditProductsContainner{
   
-    width: 240px;
+    width: 280px;
     display: flex;
     padding: 6px;
     border-radius: 12px;
     height: 90px;
     flex-direction: column;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    color: black;
+}
+.EditProductsContainner:hover{
+    border: 1px solid black;
 }
 .IconRowContainner{
     width: 100%;

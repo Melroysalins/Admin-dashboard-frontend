@@ -46,6 +46,7 @@ const StoreForm = () => {
   const [editclicked, setEditClicked] = useState(false);
   const [disabled, setDisabled] = useState();
   const dispatch = useDispatch();
+  const [isScreenSmall, setIsScreenSmall] = useState(window.innerWidth <= 410);
 
   const handleGetStoreAddress = async () => {
     if (navigator.geolocation) {
@@ -95,10 +96,6 @@ const StoreForm = () => {
     setLogo(e.target.files[0]);
   };
 
-  const handleOfferBannerChange = (e) => {
-    setOfferBanner(e.target.files[0]);
-  };
-
   const fetchStoreDetails = async () => {
     const resultData = await getCurrentStoreDetails();
 
@@ -113,7 +110,8 @@ const StoreForm = () => {
       setOffer(resultData?.checkStoreExist?.offer);
       setStoreName(resultData?.checkStoreExist?.storename);
       setFile(resultData?.checkStoreExist?.file?.url);
-      setOfferBanner(resultData?.checkStoreExist?.OfferBanner?.url);
+      setType(resultData?.checkStoreExist?.restauranttype);
+      setCuisin(resultData?.checkStoreExist?.cuisine);
     }
   };
 
@@ -154,6 +152,8 @@ const StoreForm = () => {
           storeID,
           logo,
           OfferBanner: offerbanner,
+          restauranttype: type,
+          cuisine: cuisine,
         });
       }
     }
@@ -161,6 +161,12 @@ const StoreForm = () => {
 
   useEffect(() => {
     fetchStoreDetails();
+    const handleResize = () => {
+      setIsScreenSmall(window.innerWidth <= 410);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [disabled]);
 
   return (
@@ -168,7 +174,7 @@ const StoreForm = () => {
       <div className="StoreLayoutGrid">
         <Box
           sx={{
-            width: 500,
+            width: !isScreenSmall ? 400 : 240,
             maxWidth: "100%",
             border: "none",
           }}
@@ -183,7 +189,7 @@ const StoreForm = () => {
         </Box>
         <Box
           sx={{
-            width: 500,
+            width: !isScreenSmall ? 400 : 240,
             maxWidth: "100%",
             border: "none",
           }}
@@ -198,7 +204,7 @@ const StoreForm = () => {
         </Box>
         <Box
           sx={{
-            width: 500,
+            width: !isScreenSmall ? 400 : 240,
             maxWidth: "100%",
             border: "none",
           }}
@@ -213,7 +219,7 @@ const StoreForm = () => {
         </Box>
         <Box
           sx={{
-            width: 500,
+            width: !isScreenSmall ? 400 : 240,
             maxWidth: "100%",
             border: "none",
           }}
@@ -228,7 +234,7 @@ const StoreForm = () => {
         </Box>
         <Box
           sx={{
-            width: 500,
+            width: !isScreenSmall ? 400 : 240,
             maxWidth: "100%",
             border: "none",
           }}
@@ -243,7 +249,7 @@ const StoreForm = () => {
         </Box>
         <Box
           sx={{
-            width: 500,
+            width: !isScreenSmall ? 400 : 240,
             maxWidth: "100%",
             border: "none",
           }}
@@ -259,7 +265,7 @@ const StoreForm = () => {
         <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
           <Box
             sx={{
-              width: 500,
+              width: !isScreenSmall ? 400 : 240,
               maxWidth: "100%",
               border: "none",
             }}
@@ -274,7 +280,7 @@ const StoreForm = () => {
             />
           </Box>
         </div>
-        <div style={{ display: "flex", justifyContent: "end" }}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <button
             className="getCurrentLocation"
             onClick={() => handleGetStoreAddress()}
@@ -284,7 +290,7 @@ const StoreForm = () => {
         </div>
         <Box
           sx={{
-            width: 500,
+            width: !isScreenSmall ? 400 : 240,
             maxWidth: "100%",
             border: "none",
           }}
@@ -299,7 +305,7 @@ const StoreForm = () => {
         </Box>
         <Box
           sx={{
-            width: 500,
+            width: !isScreenSmall ? 400 : 240,
             maxWidth: "100%",
             border: "none",
           }}
@@ -309,6 +315,8 @@ const StoreForm = () => {
             label="Available cuisines"
             id="fullWidth"
             type="text"
+            value={cuisine}
+            onChange={(e) => setCuisin(e.target.value)}
           />
         </Box>
         <Box
@@ -325,6 +333,8 @@ const StoreForm = () => {
               select
               label="Select"
               helperText="select your restaurant type"
+              value={type}
+              onChange={(e) => setType(e.target.value)}
             >
               {currencies.map((option) => (
                 <MenuItem key={option.value} value={option.value}>

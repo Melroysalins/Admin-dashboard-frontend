@@ -67,13 +67,6 @@ export const EditDetails = [
     navigate: "/editstore",
   },
   {
-    id: "1112",
-    name: "Edit Products",
-    icon: <InventoryIcon />,
-    backgroundColor: "#D1E5EC",
-    iconcolor: "333333",
-  },
-  {
     id: "1113",
     name: "Edit Profile",
     icon: <PermIdentityIcon />,

@@ -6,14 +6,13 @@ const EditProducts = ({ data }) => {
   return (
     <div
       className="EditProductsContainner"
-      style={{ background: data?.backgroundColor }}
       onClick={() => navigate(`${data?.navigate}`)}
     >
-      <div className="IconRowContainner" style={{ color: data?.iconcolor }}>
+      <div className="IconRowContainner" style={{ color: "black" }}>
         {data?.icon}
       </div>
       <div className="EditnameContainner">
-        <p style={{ color: data?.iconcolor }}>{data?.name}</p>
+        <p>{data?.name}</p>
       </div>
     </div>
   );
