@@ -97,7 +97,10 @@
      font-size: 18px;
      color: white;
      width: 96%;
-     background-color:#FF735C;
+     background-color:black;
+}
+.LoginBtn:hover{
+    opacity: 0.7;
 }
 .registermessage{
     display: flex;

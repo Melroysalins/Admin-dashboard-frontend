@@ -1,11 +1,21 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const MenuList = ({ data }) => {
+const MenuList = ({ data, setUserLoggedIn }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const pathname = location.pathname;
-  console.log("path name", pathname);
+
+  const handleUserLogout = () => {
+    console.log("clicked");
+    localStorage.setItem("isloggin", false);
+    // setUserLoggedIn(false);
+  };
+
+  const handleUserLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <div
       className={
@@ -13,9 +23,17 @@ const MenuList = ({ data }) => {
           ? "MenuListComponent selected"
           : "MenuListComponent"
       }
-      onClick={() => navigate(data?.navigate)}
+      onClick={() => {
+        if (data === "Logout") {
+          handleUserLogout();
+        } else if (data === "Login") {
+          handleUserLogin();
+        } else {
+          navigate(data?.navigate);
+        }
+      }}
     >
-      <p>{data?.name}</p>
+      <p>{data?.name || data}</p>
       <div className="icon"> {data?.icon}</div>
     </div>
   );

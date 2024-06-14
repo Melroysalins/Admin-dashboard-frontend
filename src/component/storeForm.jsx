@@ -1,12 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { getCurrentStoreDetails, registerStore } from "../api/store";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 import CustomizedSnackbars from "./snackBar";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getCurrntStoreInfo } from "../store/storeSlice";
-import DisplayStoreLogo from "./displayStoreLogo";
+
+import MenuItem from "@mui/material/MenuItem";
 import { getStoreAddress } from "../api/getStoreAddress";
 import { validateStoreInfo } from "../utils/validateStoreInfo";
+
+const currencies = [
+  {
+    value: "Veg",
+    label: "Veg",
+  },
+  {
+    value: "NonVeg",
+    label: "NonVeg",
+  },
+  {
+    value: "Both",
+    label: "Both",
+  },
+];
 
 const StoreForm = () => {
   const [storename, setStoreName] = useState("");
@@ -18,6 +36,8 @@ const StoreForm = () => {
   const [offerbanner, setOfferBanner] = useState("");
   const [address, setAddress] = useState("");
   const [offer, setOffer] = useState("");
+  const [cuisine, setCuisin] = useState("");
+  const [type, setType] = useState("");
   const [open, setOpen] = useState(false);
   const [severity, setSeverity] = useState("success");
   const [message, setMessage] = useState(null);
@@ -146,59 +166,115 @@ const StoreForm = () => {
   return (
     <div className="StoreFormLayout">
       <div className="StoreLayoutGrid">
-        <input
-          type="text"
-          placeholder={storename?.length ? storename : "Enter Store Name"}
-          value={storename}
-          onChange={(e) => setStoreName(e.target.value)}
-          disabled={disabled}
-        />
-        <input
-          type="text"
-          placeholder="Enter Delivery Time"
-          value={deliveryTime}
-          onChange={(e) => setDeliveryTime(e.target.value)}
-          disabled={disabled}
-        />
-        <input
-          type="text"
-          placeholder="Enter Shop Open Time"
-          value={openTime}
-          onChange={(e) => setOpenTime(e.target.value)}
-          disabled={disabled}
-        />
-        <input
-          type="text"
-          placeholder="Enter Shop Close Time"
-          value={closeTime}
-          disabled={disabled}
-          onChange={(e) => setCloseTime(e.target.value)}
-        />
-        <label>
-          Enter Banner Image
-          <input
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter Store Name"
+            id="fullWidth"
+            value={storename}
+            onChange={(e) => setStoreName(e.target.value)}
+          />
+        </Box>
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter Delivery Time"
+            id="fullWidth"
+            value={deliveryTime}
+            onChange={(e) => setDeliveryTime(e.target.value)}
+          />
+        </Box>
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter Shop Open Time"
+            id="fullWidth"
+            value={openTime}
+            onChange={(e) => setOpenTime(e.target.value)}
+          />
+        </Box>
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter Shop Close Time"
+            id="fullWidth"
+            value={closeTime}
+            onChange={(e) => setCloseTime(e.target.value)}
+          />
+        </Box>
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="  Enter Banner Image"
+            id="fullWidth"
             type="file"
-            placeholder="Enter Banner Image"
             onChange={handleFileChange}
-            disabled={disabled}
           />
-        </label>
-        <input
-          type="text"
-          placeholder="Enter Offer"
-          value={offer}
-          onChange={(e) => setOffer(e.target.value)}
-          disabled={disabled}
-        />
+        </Box>
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="  Enter Offer"
+            id="fullWidth"
+            value={offer === "null" ? "" : offer}
+            onChange={(e) => setOffer(e.target.value)}
+          />
+        </Box>
         <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
-          <textarea
-            type="text"
-            placeholder="Enter Shop Address"
-            value={address?.village || address}
-            onChange={(e) => setAddress(e.target.value)}
-            disabled={disabled}
-            className="AddressTextarea"
-          />
+          <Box
+            sx={{
+              width: 500,
+              maxWidth: "100%",
+              border: "none",
+            }}
+          >
+            <TextField
+              fullWidth
+              label="Enter Shop Address"
+              id="fullWidth"
+              value={address?.village || address}
+              onChange={(e) => setAddress(e.target.value)}
+              disabled={disabled}
+            />
+          </Box>
+        </div>
+        <div style={{ display: "flex", justifyContent: "end" }}>
           <button
             className="getCurrentLocation"
             onClick={() => handleGetStoreAddress()}
@@ -206,28 +282,58 @@ const StoreForm = () => {
             Get Current Location
           </button>
         </div>
-        <label style={{ marginLeft: "10px" }}>
-          Enter Store Logo
-          <input
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter Store Logo"
+            id="fullWidth"
             type="file"
-            placeholder="Enter Banner Image"
             onChange={handleLogoChange}
-            disabled={disabled}
           />
-        </label>
-        <DisplayStoreLogo
-          message={"No Offer Banner Added"}
-          image={offerbanner}
-        />
-        <label>
-          {" "}
-          Add Offer Banner
-          <input
-            type="file"
-            placeholder="Add Offer Bannner"
-            onChange={handleOfferBannerChange}
+        </Box>
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Available cuisines"
+            id="fullWidth"
+            type="text"
           />
-        </label>
+        </Box>
+        <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "25ch" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <div>
+            <TextField
+              id="outlined-select-currency"
+              select
+              label="Select"
+              helperText="select your restaurant type"
+            >
+              {currencies.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </div>
+        </Box>
       </div>
 
       <CustomizedSnackbars

@@ -60,6 +60,7 @@ const LoginForm = ({ setIsRegisteredPage, isregisteredpage }) => {
         localStorage.setItem("accesstoken", loginResult?.accesstoken);
         localStorage.setItem("refreshtoken", loginResult?.refreshtoken);
         localStorage.setItem("userid", loginResult?.loggedAdmin?._id);
+        localStorage.setItem("isloggin", true);
         setTimeout(() => {
           navigate("/");
         }, 2000);

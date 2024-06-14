@@ -9,6 +9,7 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import StarIcon from "@mui/icons-material/Star";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 export const BaseUrl = "http://localhost:4000/api/admin";
 
@@ -26,22 +27,10 @@ export const Menulistcontent = [
     navigate: "/store",
   },
   {
-    id: 103,
-    name: "order Delivered",
-    icon: <DeliveryDiningIcon />,
-    navigate: "/order",
-  },
-  {
     id: 104,
     name: "Add Products",
     icon: <InventoryIcon />,
     navigate: "/products",
-  },
-  {
-    id: 110,
-    name: "Add Banners",
-    icon: <InventoryIcon />,
-    navigate: "/banner",
   },
   {
     id: 105,
@@ -60,11 +49,6 @@ export const Menulistcontent = [
     name: "Edit",
     navigate: "/editstore",
     icon: <ReceiptIcon />,
-  },
-  {
-    id: 108,
-    name: "Rating",
-    icon: <StarIcon />,
   },
   {
     id: 109,
