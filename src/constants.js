@@ -38,6 +38,12 @@ export const Menulistcontent = [
     navigate: "/products",
   },
   {
+    id: 110,
+    name: "Add Banners",
+    icon: <InventoryIcon />,
+    navigate: "/banner",
+  },
+  {
     id: 105,
     name: "Products",
     navigate: "/allproducts",
@@ -51,7 +57,8 @@ export const Menulistcontent = [
   },
   {
     id: 107,
-    name: "Bills",
+    name: "Edit",
+    navigate: "/editstore",
     icon: <ReceiptIcon />,
   },
   {

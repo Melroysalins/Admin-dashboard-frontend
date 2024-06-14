@@ -15,6 +15,7 @@ import EditPage from "./pages/editPage";
 import EditStore from "./component/editStore";
 import EditProduct from "./component/editProduct";
 import EditProfile from "./component/editProfile";
+import AddBanners from "./pages/addBanners";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="products" element={<ProductsPage />} />
           <Route path="allproducts" element={<AllProducts />} />
           <Route path="store" element={<StorePage />} />
+          <Route path="banner" element={<AddBanners />} />
           <Route path="/" element={<EditPage />}>
             <Route path="editstore" element={<EditStore />} />
             <Route path="editproduct/:_id" element={<EditProduct />} />

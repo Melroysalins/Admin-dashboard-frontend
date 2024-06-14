@@ -180,7 +180,7 @@
     user-select: none;
 }
 
-.StoreLayoutGrid textarea{
+.AddressTextarea{
     padding: 19px;
     border-radius: 8px;
     margin-top: 20px;
@@ -189,13 +189,27 @@
      outline: none;
      font-size: 16px;
      font-weight: 500;
-         font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
+
+
 }
+.getCurrentLocation{
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+}
+.getCurrentLocation:hover{
+    opacity: 0.7;
+}
+
 .StoreSaveButtonContainner{
     margin-top: 28px;
     display: flex;
     
-    justify-content: space-between;
+    justify-content: flex-end;
    
 }
 .StoreSaveButtonContainner button{
@@ -205,8 +219,9 @@
     border-radius: 7px;
     border: 1px solid whitesmoke;
     font-size: 16px;
-    background-color: #FF735C;
+    background-color: black;
     cursor: pointer;
+    color: white;
 
 }
 .StoreSaveButtonContainner button:hover{

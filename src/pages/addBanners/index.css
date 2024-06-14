@@ -1,0 +1,25 @@
+.AddBannersPage{
+    display: flex;
+    width: 100%;
+    border: 1px solid black;
+    padding: 20px;
+    flex-direction: column;
+    gap: 24px;
+}
+.AddBannerButton{
+    display: flex;
+    width: 100%;
+    border: 1px solid red;
+    justify-content: flex-end;
+}
+.AddBannerButton button{
+    padding: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.AddBannerButton button:hover{
+   opacity: 0.7;
+}

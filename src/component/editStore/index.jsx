@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import { getCurrentStoreDetails } from "../../api/store";
 import { updateStore } from "../../api/updateStore";
 import CustomizedSnackbars from "../snackBar";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const EditStore = () => {
   const [storename, setStorename] = useState("");
@@ -16,6 +17,7 @@ const EditStore = () => {
   const [deliveryTime, setDeliveryTime] = useState("");
   const [file, setFile] = useState("");
   const [logo, setLogo] = useState("");
+  const [offerbanner, setOfferBanner] = useState("");
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [severity, setSeverity] = useState("success");
@@ -33,6 +35,7 @@ const EditStore = () => {
       setDeliveryTime(result?.checkStoreExist?.deliveryTime);
       setFile(result?.checkStoreExist?.file?.url);
       setLogo(result?.checkStoreExist?.logo?.url);
+      setOfferBanner(result?.checkStoreExist?.OfferBanner?.url);
     }
   };
 
@@ -51,6 +54,7 @@ const EditStore = () => {
         file,
         deliveryTime,
         logo,
+        OfferBanner: offerbanner,
       });
       if (result.status === 200) {
         setOpen(true);
@@ -69,6 +73,10 @@ const EditStore = () => {
 
   const handleLogoChange = (e) => {
     setLogo(e.target.files[0]);
+  };
+
+  const handleOfferBannerChange = (e) => {
+    setOfferBanner(e.target.files[0]);
   };
 
   useEffect(() => {
@@ -98,7 +106,7 @@ const EditStore = () => {
         />
         <textarea
           placeholder="Store Address"
-          value={address}
+          value={address[0]?.village}
           onChange={(e) => setAddress(e.target.value)}
         />
         <input
@@ -125,6 +133,25 @@ const EditStore = () => {
           <label>Add Logo </label>
           <input type="file" onChange={handleLogoChange} />
         </div>
+      </div>
+      <div
+        style={{
+          marginTop: "60px",
+          display: "flex",
+          alignItems: "center",
+          gap: "20px",
+          justifyContent: "space-between",
+        }}
+      >
+        <DisplayStoreLogo image={offerbanner} />
+        <div style={{ display: "flex", gap: "12px" }}>
+          <label>Add OfferBanner </label>
+          <input type="file" onChange={handleOfferBannerChange} />
+        </div>
+        <DeleteIcon
+          style={{ marginRight: "30px" }}
+          onClick={() => setOfferBanner("")}
+        />
       </div>
       <div className="saveStoreDetailContainner">
         <Button

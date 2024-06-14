@@ -9,6 +9,7 @@ const updateStore = async ({
   file,
   logo,
   deliveryTime,
+  OfferBanner,
 }) => {
   const formData = new FormData();
   const storeID = localStorage.getItem("userid");
@@ -21,6 +22,7 @@ const updateStore = async ({
   formData.append("file", file);
   formData.append("logo", logo);
   formData.append("storeID", storeID);
+  formData.append("OfferBanner", OfferBanner);
 
   const result = await fetch(`${BaseUrl}/updatestore`, {
     method: "POST",
