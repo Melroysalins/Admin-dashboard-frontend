@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
@@ -12,12 +12,22 @@ const ProfileEditForm = ({
   handleSaveProfileDetails,
   setLoad,
 }) => {
+  const [isScreenSmall, setIsScreenSmall] = useState(window.innerWidth <= 440);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsScreenSmall(window.innerWidth <= 440);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="ProfileEditForm">
       <Box
         component="form"
         sx={{
-          "& > :not(style)": { m: 1, width: "45ch" },
+          "& > :not(style)": { m: 1, width: !isScreenSmall ? "45ch" : "30ch" },
         }}
         noValidate
         autoComplete="off"
@@ -32,7 +42,7 @@ const ProfileEditForm = ({
       <Box
         component="form"
         sx={{
-          "& > :not(style)": { m: 1, width: "45ch" },
+          "& > :not(style)": { m: 1, width: !isScreenSmall ? "45ch" : "30ch" },
         }}
         noValidate
         autoComplete="off"
@@ -47,7 +57,7 @@ const ProfileEditForm = ({
       <Box
         component="form"
         sx={{
-          "& > :not(style)": { m: 1, width: "45ch" },
+          "& > :not(style)": { m: 1, width: !isScreenSmall ? "45ch" : "30ch" },
         }}
         noValidate
         autoComplete="off"

@@ -155,6 +155,16 @@ const StoreForm = () => {
           restauranttype: type,
           cuisine: cuisine,
         });
+
+        if (result?.status === 200) {
+          setOpen(true);
+          setMessage(result?.message);
+          setSeverity("success");
+        } else {
+          setOpen(true);
+          setMessage(result?.message);
+          setSeverity("error");
+        }
       }
     }
   };

@@ -43,7 +43,7 @@ function validateStoreInfo(openTime, closeTime, offer, deliveryTime) {
       }
     }
 
-    return totalMinutes;
+    return `${totalMinutes} min`;
   }
 
   // Validate and normalize times

@@ -62,3 +62,12 @@
 .ProfileEditSaveButton button:hover{
     opacity: 0.7;
 }
+@media(max-width:970px){
+    .ProfileMainInfoContainner{
+    width: 100%;
+    display: flex;
+    margin-top: 60px;
+    gap: 40px;
+    flex-direction: column;
+}
+}
