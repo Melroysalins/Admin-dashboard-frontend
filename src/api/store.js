@@ -51,4 +51,36 @@ const getCurrentStoreDetails = async () => {
   return response;
 };
 
-export { registerStore, getCurrentStoreDetails };
+const StoreLive = async () => {
+  const storeID = localStorage.getItem("userid");
+
+  const result = await fetch(`${BaseUrl}/storelive`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ storeID: storeID }),
+  });
+
+  const response = await result.json();
+
+  return response;
+};
+
+const setStoreOffline = async () => {
+  const storeID = localStorage.getItem("userid");
+
+  const result = await fetch(`${BaseUrl}/offline`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ storeID: storeID }),
+  });
+
+  const response = await result.json();
+
+  return response;
+};
+
+export { registerStore, getCurrentStoreDetails, StoreLive, setStoreOffline };

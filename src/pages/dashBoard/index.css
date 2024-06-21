@@ -26,3 +26,11 @@
     gap: 15px;
     cursor: pointer;
 }
+.GoLiveContainner{
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: end;
+    padding: 10px;
+}
+

@@ -7,6 +7,7 @@ import { ProductListAPI } from "../../api/productList";
 const AllProducts = () => {
   const [productlist, setProductList] = useState();
   const [fileteredlist, setFilteredList] = useState();
+  const [load, setLoad] = useState(false);
 
   const FetchProducts = async () => {
     const response = await ProductListAPI();
@@ -16,7 +17,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     FetchProducts();
-  }, []);
+  }, [load]);
 
   return (
     <div className="AllProductDisplayPage">
@@ -28,7 +29,7 @@ const AllProducts = () => {
         <div className="DisplayAllProduct">
           {fileteredlist &&
             fileteredlist?.map((plist) => (
-              <ProductList key={plist?._id} data={plist} />
+              <ProductList key={plist?._id} data={plist} setLoad={setLoad} />
             ))}
         </div>
       </div>

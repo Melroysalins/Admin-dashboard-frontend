@@ -43,7 +43,15 @@ function validateStoreInfo(openTime, closeTime, offer, deliveryTime) {
       }
     }
 
-    return `${totalMinutes} min`;
+    return totalMinutes.toString();
+  }
+
+  function normalizeOffer(offer) {
+    let normalizedOffer = offer.trim();
+    if (normalizedOffer.endsWith("%")) {
+      normalizedOffer = normalizedOffer.slice(0, -1);
+    }
+    return normalizedOffer;
   }
 
   // Validate and normalize times
@@ -56,6 +64,9 @@ function validateStoreInfo(openTime, closeTime, offer, deliveryTime) {
 
   // Validate offer
   const isValidOfferValue = offer ? isValidOffer(offer) : "";
+
+  // Normalize offer if valid
+  const normalizedOffer = isValidOfferValue ? normalizeOffer(offer) : null;
 
   // Validate delivery time
   const isValidDeliveryTimeValue = isValidDeliveryTime(deliveryTime);
@@ -92,10 +103,11 @@ function validateStoreInfo(openTime, closeTime, offer, deliveryTime) {
     errors,
     normalizedOpenTime,
     normalizedCloseTime,
-    offer: isValidOfferValue ? offer : null,
+    offer: normalizedOffer,
     deliveryTime: normalizedDeliveryTime,
   };
 }
+
 function validateStoreInfo2(openTime, closeTime, offer, deliveryTime, type) {
   const timeRegex = /^(1[0-2]|0?[1-9]):[0-5][0-9]\s?(am|pm|AM|PM)$/;
   const offerRegex = /^(\d{1,2}%|\d{1,2})$/;

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import StoreLogo from "./storeLogo";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams, useLocation } from "react-router-dom";
+import { getCurrentStoreDetails } from "../api/store";
+import { getCurrntStoreInfo } from "../store/storeSlice";
 
 const DashBoardHeader = () => {
   const [storelogo, setStoreLogo] = useState("");
   const location = useLocation();
+  const dispatch = useDispatch();
   const pathname = location.pathname;
   const pathNameWithoutSlash = pathname.substring(
     pathname.lastIndexOf("/") + 1

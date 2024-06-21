@@ -4,12 +4,17 @@ import StoreLogo from "../storeLogo";
 import ProductName from "../productName";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
+import { deleteParticularProduct } from "../../api/deleteProduct";
+import CustomizedSnackbars from "../snackBar";
 
-const ProductList = ({ data }) => {
+const ProductList = ({ data, setLoad }) => {
   const [quantitys, setQuantitys] = useState();
   const [prices, setPrices] = useState();
   const [showmenu, setShowMenu] = useState(false);
   const [disable, setDisable] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [severity, setSeverity] = useState(false);
+  const [message, setMessage] = useState("success");
   const navigate = useNavigate();
   const { productname, price, quantity, image } = data;
 
@@ -19,6 +24,20 @@ const ProductList = ({ data }) => {
   const handleProductEdit = () => {
     navigate(`/editproduct/${data?._id}`);
   };
+
+  const handleProductDelete = async () => {
+    const storeID = localStorage.getItem("userid");
+
+    const result = await deleteParticularProduct({ storeID, _id: data?._id });
+
+    if (result?.status === 200) {
+      setOpen(true);
+      setMessage(result?.message);
+      setSeverity("success");
+      setLoad(true);
+    }
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -76,9 +95,16 @@ const ProductList = ({ data }) => {
         {showmenu && (
           <ul ref={menuRef}>
             <li onClick={() => handleProductEdit()}>Edit</li>
+            <li onClick={() => handleProductDelete()}>Delete</li>
           </ul>
         )}
       </div>
+      <CustomizedSnackbars
+        open={open}
+        setOpen={setOpen}
+        severity={severity}
+        message={message}
+      />
     </div>
   );
 };
