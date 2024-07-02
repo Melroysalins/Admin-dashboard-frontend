@@ -1,11 +1,49 @@
 .ProductListContainner{
-    display: flex;
-    justify-content: space-between;
+  display: flex;
     width: 100%;
+    column-gap:30px;
     align-items: center;
    padding-bottom: 4px;
     border-bottom: 2px solid #ccc;
     cursor: pointer;
+}
+.AllInOneContainner{
+    display: flex;
+    align-items: center;
+
+}
+.PLogoandNameContainner{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.QtyInputDisplay{
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    align-items: center;
+    justify-content: flex-start;
+}
+.QtyInputDisplay input{
+    width: 40%;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+.priceLableCOntainner{
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: flex-start;
+}
+.priceLableCOntainner input{
+    width: 40%;
+    border: none;
+    background-color: white;
+    outline: none;
 }
 .ProductListContainner label{
     display: flex;
@@ -50,4 +88,38 @@
 .EditContainner ul li:hover{
     cursor: pointer;
     opacity: 0.7;
+}
+
+@media(max-width:750px){
+  .ProductListContainner{
+  display: flex;
+    width: 100%;
+    column-gap:30px;
+    align-items: center;
+   padding-bottom: 4px;
+    border-bottom: 2px solid #ccc;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .PLogoandNameContainner{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media(max-width:350px){
+    .AllInOneContainner{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.EditContainner {
+    position: relative;
+    width: 100%;
+    /* justify-content: flex-end; */
+    display: flex;
+    justify-content: flex-end;
+}
 }

@@ -8,16 +8,16 @@ import { getCurrntStoreInfo } from "../store/storeSlice";
 const DashBoardHeader = () => {
   const [storelogo, setStoreLogo] = useState("");
   const location = useLocation();
-  const dispatch = useDispatch();
   const pathname = location.pathname;
-  const pathNameWithoutSlash = pathname.substring(
-    pathname.lastIndexOf("/") + 1
-  );
 
-  // Converting the first letter to uppercase
-  const formattedName =
-    pathNameWithoutSlash.charAt(0).toUpperCase() +
-    pathNameWithoutSlash.slice(1);
+  // Get the last segment after the last '/'
+  const segments = pathname.split("/");
+  const lastSegment = segments[segments.length - 1];
+
+  let formattedName1 = segments[1];
+
+  let formattedName =
+    formattedName1.charAt(0).toUpperCase() + formattedName1.slice(1);
 
   const storeinfoSelector = useSelector((store) => store?.store?.storedetails);
 

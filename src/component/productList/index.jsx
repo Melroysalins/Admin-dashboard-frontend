@@ -63,41 +63,45 @@ const ProductList = ({ data, setLoad }) => {
 
   return (
     <div className="ProductListContainner">
-      <StoreLogo image={image?.url} isproductpage={true} />
-      <ProductName name={productname} key={data?._id} data={data} />
-      <label>
-        Qty :
-        <input
-          type="number"
-          placeholder={quantity}
-          value={quantitys}
-          onChange={(e) => setQuantitys(e.target.value)}
-          disabled={disable}
-        />
-      </label>
-      <div style={{ display: "flex", gap: "4px" }}>
-        <label>Rs : </label>
-        <input
-          type="number"
-          placeholder={price}
-          value={prices}
-          className="priceINPUT"
-          onChange={(e) => setPrices(e.target.value)}
-          disabled={disable}
-        />
+      <div className="PLogoandNameContainner">
+        <StoreLogo image={image?.url} isproductpage={true} />
+        <ProductName name={productname} key={data?._id} data={data} />
       </div>
-      <div className="EditContainner">
-        <MoreVertIcon
-          sx={{ cursor: "pointer" }}
-          onClick={() => setShowMenu(!showmenu)}
-          ref={iconRef}
-        />
-        {showmenu && (
-          <ul ref={menuRef}>
-            <li onClick={() => handleProductEdit()}>Edit</li>
-            <li onClick={() => handleProductDelete()}>Delete</li>
-          </ul>
-        )}
+      <div className="AllInOneContainner">
+        <div className="QtyInputDisplay">
+          <label>Qty : </label>
+          <input
+            type="number"
+            placeholder={quantity}
+            value={quantitys}
+            onChange={(e) => setQuantitys(e.target.value)}
+            disabled={disable}
+          />
+        </div>
+        <div className="priceLableCOntainner">
+          <label>Rs : </label>
+          <input
+            type="number"
+            placeholder={price}
+            value={prices}
+            className="priceINPUT"
+            onChange={(e) => setPrices(e.target.value)}
+            disabled={disable}
+          />
+        </div>
+        <div className="EditContainner">
+          <MoreVertIcon
+            sx={{ cursor: "pointer" }}
+            onClick={() => setShowMenu(!showmenu)}
+            ref={iconRef}
+          />
+          {showmenu && (
+            <ul ref={menuRef}>
+              <li onClick={() => handleProductEdit()}>Edit</li>
+              <li onClick={() => handleProductDelete()}>Delete</li>
+            </ul>
+          )}
+        </div>
       </div>
       <CustomizedSnackbars
         open={open}

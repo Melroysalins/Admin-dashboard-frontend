@@ -7,6 +7,8 @@ import Button from "@mui/material/Button";
 import { getCurrentProductInfo } from "../../api/getProduct";
 import { useParams } from "react-router-dom";
 import { UpdateProductDetails } from "../../api/updateProduct";
+import { Box } from "@mui/material";
+import TextField from "@mui/material/TextField";
 
 const EditProduct = () => {
   const [open, setOpen] = useState(false);
@@ -20,6 +22,7 @@ const EditProduct = () => {
   const [available, setAvaialable] = useState(true);
   const [load, setLoad] = useState(false);
   const [alignment, setAlignment] = React.useState();
+  const [isScreenSmall, setIsScreenSmall] = useState(window.innerWidth <= 450);
 
   const { _id } = useParams();
 
@@ -41,7 +44,7 @@ const EditProduct = () => {
   };
 
   const handleSaveProductDetails = async () => {
-    console.log("The File---->", file);
+    console.log("The File---->", quantity);
     const result = await UpdateProductDetails({
       Pimage: file,
       _id,
@@ -61,43 +64,87 @@ const EditProduct = () => {
 
   useEffect(() => {
     FetchProductDetails();
+    const handleResize = () => {
+      setIsScreenSmall(window.innerWidth <= 450);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [load]);
 
   return (
     <div className="EditProductPage">
       <div className="EditProductContainner">
-        <input
-          type="text"
-          placeholder="Product Name"
-          value={productname}
-          onChange={(e) => setProductName(e.target.value)}
-        />
-        <textarea
-          placeholder="product description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="quantity"
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
+        <Box
+          sx={{
+            width: !isScreenSmall ? 400 : 240,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter Store Name"
+            id="fullWidth"
+            value={productname}
+            onChange={(e) => setProductName(e.target.value)}
+          />
+        </Box>
+        <Box
+          sx={{
+            width: !isScreenSmall ? 400 : 240,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter Store Name"
+            id="fullWidth"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </Box>
+
+        <Box
+          sx={{
+            width: !isScreenSmall ? 400 : 240,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter Store Name"
+            id="fullWidth"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+        </Box>
+        <Box
+          sx={{
+            width: !isScreenSmall ? 400 : 240,
+            maxWidth: "100%",
+            border: "none",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter Store Name"
+            id="fullWidth"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </Box>
       </div>
       <div className="productImageContainner">
         <div
           style={{
             display: "flex",
             gap: "10px",
-            alignItems: "center",
+            alignItems: !isScreenSmall ? "center" : "",
             width: "100%",
-            justifyContent: "space-between",
+            flexDirection: !isScreenSmall ? "" : "column",
           }}
         >
           <DisplayStoreImage image={file} />
@@ -118,25 +165,6 @@ const EditProduct = () => {
             type="file"
             onChange={handleFileChange}
             style={{ marginLeft: "5px" }}
-          />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            alignItems: "center",
-            gap: "6px",
-          }}
-        >
-          <p
-            style={{ fontFamily: "Poppins", fontWeight: "600", opacity: "0.6" }}
-          >
-            Available :{" "}
-          </p>
-          <ColorToggleButton
-            alignment={alignment}
-            setAlignment={setAlignment}
           />
         </div>
       </div>
