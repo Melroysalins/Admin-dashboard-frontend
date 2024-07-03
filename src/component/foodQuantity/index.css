@@ -1,0 +1,17 @@
+.FoodQuantityContainner{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+}
+.Qty p{
+     font-size: 13px;
+    font-weight: 600;
+     font-family: "Poppins", sans-serif;
+}
+
+.QtyNumber p{
+     font-size: 14px;
+    font-weight: 600;
+     font-family: "Poppins", sans-serif;
+}

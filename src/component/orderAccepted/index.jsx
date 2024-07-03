@@ -1,10 +1,10 @@
 import React from "react";
 import "./index.css";
 
-const OrderAccepted = () => {
+const OrderAccepted = ({ status }) => {
   return (
     <div className="accepted">
-      <h4>Accepted</h4>
+      <h4>{status}</h4>
     </div>
   );
 };

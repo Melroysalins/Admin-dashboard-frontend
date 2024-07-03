@@ -1,10 +1,12 @@
 import React from "react";
 import "./index.css";
 
-const CustomerAddress = () => {
+const CustomerAddress = ({ address }) => {
   return (
     <div className="CustomerAddressContainner">
-      <textarea disabled={true}>Near Christha Mahima Church Udupi</textarea>
+      <textarea disabled={true}>
+        {address?.village + " " + address?.state}
+      </textarea>
     </div>
   );
 };

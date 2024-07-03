@@ -1,0 +1,19 @@
+.TotalAmountContainner{
+    width: 100%;
+    display: flex;
+    margin-top: 19px;
+    padding: 9px;
+    justify-content: space-between;
+    border-top: 1px solid black;
+}
+.totalamt{
+     font-size: 13px;
+    font-weight: 600;
+     font-family: "Poppins", sans-serif;
+}
+.tAmount{
+     font-size: 17px;
+    font-weight: 600;
+    margin-right: 8px;
+     font-family: "Poppins", sans-serif;
+}

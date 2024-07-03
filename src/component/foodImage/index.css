@@ -1,0 +1,25 @@
+.FoodImageandNameWrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.FoodImage{
+    width: 60px;
+    display: flex;
+    height: 60px;
+}
+.FoodImage img{
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+}
+.FoodNameCont{
+    display: flex;
+    justify-content: center;
+}
+.FoodNameCont p{
+    font-size: 13px;
+    font-weight: 600;
+     font-family: "Poppins", sans-serif;
+}

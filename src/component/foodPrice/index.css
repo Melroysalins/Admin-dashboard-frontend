@@ -1,0 +1,10 @@
+.FoodPriceContainner{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.FoodPriceContainner p{
+        font-size: 14px;
+    font-weight: 600;
+     font-family: "Poppins", sans-serif;
+}

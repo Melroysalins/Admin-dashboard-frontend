@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import DashBoardInfoComponent from "../../component/dashboardInfo";
 import { DashBoardFilter, EditDetails } from "../../constants";
@@ -9,9 +9,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { StoreLive, setStoreOffline } from "../../api/store";
 import CustomizedSnackbars from "../../component/snackBar";
 import { getCurrntStoreInfo } from "../../store/storeSlice";
+import { getOrder } from "../../api/getOrder";
 
 export const DashBoardPage = () => {
   const [open, setOpen] = useState(false);
+  const [orders, setOrder] = useState();
+  const [selectedfilter, setSelectedFilter] = useState("All Order");
   const [severity, setSeverity] = useState("success");
   const [message, setMessage] = useState("");
   const selector = useSelector(
@@ -45,11 +48,26 @@ export const DashBoardPage = () => {
     }
   };
 
+  const FetchOrder = async () => {
+    const result = await getOrder();
+    setOrder(result);
+  };
+
+  useEffect(() => {
+    FetchOrder();
+  }, []);
+
   return (
     <div className="DashBoardPage">
       <div className="DashBoardInfoBox">
         {DashBoardFilter?.map((list) => (
-          <DashBoardInfoComponent key={list?.id} data={list} />
+          <DashBoardInfoComponent
+            key={list?.id}
+            data={list}
+            selectedfilter={selectedfilter}
+            setSelectedFilter={setSelectedFilter}
+            setOrder={setOrder}
+          />
         ))}
       </div>
       <div className="GoLiveContainner">
@@ -69,21 +87,15 @@ export const DashBoardPage = () => {
         ))}
       </div>
       <div className="DashBoardAllOrderContainner">
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
-        <DashBoardOrder />
+        {!orders?.orderDetails?.length && (
+          <div className="NoOrderFound">
+            <h4>No Orders Found</h4>
+          </div>
+        )}
+        {orders &&
+          orders?.orderDetails?.map((list) => (
+            <DashBoardOrder key={list?._id} data={list} setOrder={setOrder} />
+          ))}
       </div>
       <CustomizedSnackbars
         open={open}

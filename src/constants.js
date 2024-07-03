@@ -78,6 +78,10 @@ export const EditDetails = [
 
 export const DashBoardFilter = [
   {
+    id: "34566",
+    name: "All Order",
+  },
+  {
     id: "2020202",
     name: "New Order",
   },

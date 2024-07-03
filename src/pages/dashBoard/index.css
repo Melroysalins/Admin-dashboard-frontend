@@ -34,3 +34,9 @@
     padding: 10px;
 }
 
+.NoOrderFound{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+      font-family: "Poppins", sans-serif;
+}
