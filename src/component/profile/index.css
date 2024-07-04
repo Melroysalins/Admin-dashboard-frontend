@@ -9,15 +9,8 @@
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    row-gap: 15px;
+    grid-template-columns: repeat(1,1fr);
+    row-gap: 65px;
     column-gap: 15px;
 }
 
-.ProfileFormContainner input{
-      padding: 16px;
-    border-radius: 8px;
-    border: 1px solid whitesmoke;
-    outline: none;
-    margin-top: 17px;
-}

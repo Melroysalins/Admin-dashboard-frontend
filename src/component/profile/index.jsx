@@ -4,6 +4,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import { EditUserProfileDetails, getUserProfileDetails } from "../../api/user";
 import { EmailandPhoneValidation } from "../../utils/validattions";
 import CustomizedSnackbars from "../snackBar";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
 const Profile = () => {
   const [adminname, setAdminName] = useState("");
@@ -39,27 +41,50 @@ const Profile = () => {
   return (
     <div className="ProfileContainner">
       <div className="ProfileFormContainner">
-        <input
-          type="text"
-          placeholder="Enter name"
-          value={adminname}
-          onChange={(e) => setAdminName(e.target.value)}
-          disabled={disabled}
-        />
-        <input
-          type="email"
-          placeholder="Enter email "
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          disabled={disabled}
-        />
-        <input
-          type="number"
-          placeholder="Enter phone number"
-          value={number}
-          onChange={(e) => setNumber(e.target.value)}
-          disabled={disabled}
-        />
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter name"
+            id="fullWidth"
+            value={adminname}
+            onChange={(e) => setAdminName(e.target.value)}
+          />
+        </Box>
+
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter email "
+            id="fullWidth"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Box>
+
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter phone number"
+            id="fullWidth"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+          />
+        </Box>
       </div>
 
       <CustomizedSnackbars

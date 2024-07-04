@@ -43,7 +43,7 @@ function validateStoreInfo(openTime, closeTime, offer, deliveryTime) {
       }
     }
 
-    return totalMinutes.toString();
+    return totalMinutes.toString(); // Return as minutes without 'min'
   }
 
   function normalizeOffer(offer) {
@@ -64,8 +64,6 @@ function validateStoreInfo(openTime, closeTime, offer, deliveryTime) {
 
   // Validate offer
   const isValidOfferValue = offer ? isValidOffer(offer) : "";
-
-  // Normalize offer if valid
   const normalizedOffer = isValidOfferValue ? normalizeOffer(offer) : null;
 
   // Validate delivery time
@@ -111,7 +109,7 @@ function validateStoreInfo(openTime, closeTime, offer, deliveryTime) {
 function validateStoreInfo2(openTime, closeTime, offer, deliveryTime, type) {
   const timeRegex = /^(1[0-2]|0?[1-9]):[0-5][0-9]\s?(am|pm|AM|PM)$/;
   const offerRegex = /^(\d{1,2}%|\d{1,2})$/;
-  const deliveryTimeRegex = /^\d+\s?min$|^\d+\s?hr\s\d+\s?min$/;
+  const deliveryTimeRegex = /^\d+\s?min$|^\d+\s?hr\s\d+\s?min$|^\d+$/;
   const allowedTypes = ["veg", "nonveg", "both"];
 
   function isValidTime(time) {
@@ -152,9 +150,11 @@ function validateStoreInfo2(openTime, closeTime, offer, deliveryTime, type) {
       if (parts) {
         totalMinutes = parseInt(parts[1], 10);
       }
+    } else {
+      totalMinutes = parseInt(normalizedTime, 10);
     }
 
-    return totalMinutes;
+    return totalMinutes.toString(); // Return as minutes without 'min'
   }
 
   function isValidType(type) {
@@ -169,8 +169,10 @@ function validateStoreInfo2(openTime, closeTime, offer, deliveryTime, type) {
     ? normalizeTime(closeTime)
     : null;
 
-  // Validate offer
-  const isValidOfferValue = offer ? isValidOffer(offer) : "";
+  // Validate offer if it is not null or an empty string
+  const isValidOfferValue =
+    offer === null || offer === "" || isValidOffer(offer);
+  const normalizedOffer = isValidOfferValue ? offer : null;
 
   // Validate delivery time
   const isValidDeliveryTimeValue = isValidDeliveryTime(deliveryTime);
@@ -194,14 +196,14 @@ function validateStoreInfo2(openTime, closeTime, offer, deliveryTime, type) {
       "Invalid close time format. Please use the format 'HH:MM AM/PM'."
     );
   }
-  if (offer && !isValidOfferValue) {
+  if (offer !== null && offer !== "" && !isValidOfferValue) {
     errors.push(
       "Invalid offer format. Please use a percentage like '30%' or a number like '30'."
     );
   }
   if (!isValidDeliveryTimeValue) {
     errors.push(
-      "Invalid delivery time format. Please use the format 'X min' or 'X hr Y min'."
+      "Invalid delivery time format. Please use the format 'X min', 'X hr Y min', or a number like '30'."
     );
   }
   if (!isValidTypeValue) {
@@ -214,7 +216,7 @@ function validateStoreInfo2(openTime, closeTime, offer, deliveryTime, type) {
     errors,
     normalizedOpenTime,
     normalizedCloseTime,
-    offer: isValidOfferValue ? offer : null,
+    offer: normalizedOffer,
     deliveryTime: normalizedDeliveryTime,
     type: normalizedType,
   };

@@ -76,6 +76,15 @@ const EditStore = () => {
       userInput.type
     );
 
+    console.log(
+      "Store Save",
+      userInput.openTime,
+      userInput.closeTime,
+      userInput.offer,
+      userInput.deliveryTime,
+      userInput.type
+    );
+
     if (!validate?.isValid) {
       setOpen(true);
       setSeverity("error");
@@ -192,7 +201,7 @@ const EditStore = () => {
             fullWidth
             label="Offer"
             id="fullWidth"
-            value={offer}
+            value={offer === "null" ? " " : offer}
             onChange={(e) => setOffer(e.target.value)}
           />
         </Box>

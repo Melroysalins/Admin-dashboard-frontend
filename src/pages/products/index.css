@@ -4,6 +4,7 @@
     width: 100%;
     height: 100%;
     overflow-y: scroll;
+   
 }
 .ProductPageContainner{
     width: 100%;
@@ -12,10 +13,18 @@
     justify-content: center;
     align-items: center;
     gap: 15px;
+    
 }
 .AddProductContainner{
     display: flex;
     width: 100%;
     padding: 14px;
     justify-content: end;
+    
+}
+.AddProductContainner::-webkit-scrollbar{
+    display: none;
+}
+.ProductPageContainner::-webkit-scrollbar{
+    display: none;
 }

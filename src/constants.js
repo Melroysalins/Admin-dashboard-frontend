@@ -46,14 +46,15 @@ export const Menulistcontent = [
   },
   {
     id: 107,
-    name: "Edit",
+    name: "Edit Store",
     navigate: "/editstore",
     icon: <ReceiptIcon />,
   },
   {
     id: 109,
-    name: "Review",
-    icon: <ThumbUpIcon />,
+    name: "Edit Profile",
+    icon: <PersonIcon />,
+    navigate: "/editprofile",
   },
 ];
 
